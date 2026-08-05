@@ -9,3 +9,16 @@
 //   const product = await Product.findById(params.id);
 //   return NextResponse.json(product);
 // }
+
+
+//Prototype for testing without a real database connection
+import { NextResponse } from "next/server";
+
+export async function GET(_: Request, { params }: { params: { id: string } }) {
+  return NextResponse.json({
+    id: params.id,
+    name: "Mock Product",
+    price: 29.99,
+  });
+}
+

@@ -1,20 +1,22 @@
-// import { NextResponse } from "next/server";
-// import Product from "@/models/Product";
-// import { connectDB } from "@/lib/mongodb";
-
-// export async function GET() {
-//   await connectDB();
-//   const products = await Product.find({});
-//   return NextResponse.json(products);
-// }
-
-
-//Prototype for testing without a real database connection
+import { connectDB } from "@/lib/mongodb";
+import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 
-export async function GET():Promise<Response> {
-  return NextResponse.json([
-    { id: 1, name: "Black Hoodie", price: 49.99 },
-    { id: 2, name: "White Tee", price: 19.99 },
-  ]);
+export async function GET() {
+  await connectDB();
+
+  const products = await Product.find();
+
+  return NextResponse.json(products);
+}
+
+
+export async function POST(request: Request) {
+  await connectDB();
+
+  const body = await request.json();
+
+  const product = await Product.create(body);
+
+  return NextResponse.json(product);
 }

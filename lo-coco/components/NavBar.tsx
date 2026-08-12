@@ -1,15 +1,31 @@
 import Link from "next/link";
 
-export default function Navbar() {
+export default function NavBar() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-white shadow">
-      <Link href="/" className="text-xl font-bold">LO COCO</Link>
+    <header className="navbar">
+      <Link href="/" className="logo">
+        LO COCO
+      </Link>
 
-      <div className="flex gap-4">
-        <Link href="/products">Products</Link>
-        <Link href="/cart">Cart</Link>
-        <Link href="/profile">Profile</Link>
+      <nav className="nav-links">
+        <span>|</span>
+        <Link href="/">Home</Link>
+        <span>|</span>
+        <Link href="/products">Shop</Link>
+        <span>|</span>
+        <Link href="/about">About</Link>
+        <span>|</span>
+      </nav>
+
+      <div className="nav-actions">
+        <Link href="/cart" aria-label="Shopping cart">
+          🛒
+        </Link>
+
+        <Link href="/profile" aria-label="Profile">
+          ◯
+        </Link>
       </div>
-    </nav>
+    </header>
   );
 }

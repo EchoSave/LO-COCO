@@ -118,3 +118,201 @@ body {
   opacity: 0.6;
   transform: scale(1.08);
 }
+
+
+/*Home Page*/
+
+.home-page {
+  min-height: 100vh;
+  background: #f8e8d7;
+  color: #171512;
+}
+
+.hero {
+  width: 100%;
+  height: 315px;
+  overflow: hidden;
+
+  background: #ead5c1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.promotions {
+  width: 100%;
+  height: 125px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+
+  background: #f0d2b8;
+}
+
+.promo-card {
+  position: relative;
+
+  width: 165px;
+  height: 105px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #e5cbb5;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+.promo-card:hover img {
+  transform: scale(1.04);
+}
+
+.promo-label {
+  position: absolute;
+
+  left: 12px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 2;
+
+  padding: 8px 12px;
+
+  border-radius: 11px;
+
+  background: #050505;
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+.best-sellers {
+  width: 100%;
+
+  padding: 10px 38px 40px;
+
+  background: #f8e8d7;
+}
+
+.section-heading {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 35px;
+
+  margin-bottom: 18px;
+}
+
+.section-heading span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #aaa096;
+}
+
+.section-heading h1 {
+  margin: 0;
+
+  white-space: nowrap;
+
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.product-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 54px;
+}
+
+.product-card {
+  min-width: 0;
+
+  text-align: center;
+}
+
+.product-image-container {
+  width: 100%;
+
+  aspect-ratio: 0.72;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #f2d6bd;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
+.product-info {
+  padding: 8px 5px 0;
+
+  text-align: center;
+}
+
+.product-info h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.product-info p {
+  margin: 2px 0 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+}
+
+.home-page footer {
+  border-top: 1px solid #2b2824;
+}

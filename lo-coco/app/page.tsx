@@ -1,24 +1,37 @@
+
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-4">LO COCO Prototype</h1>
-      <p className="mb-6">Welcome! Click around to explore the prototype.</p>
+    <main>
+      <section className="hero">
+        <img
+          src="/hero.jpg"
+          alt="Hero Image"
+          className="hero-image"
+        />
+      </section>
 
-      <div className="flex gap-4">
-        <Link href="/products" className="px-4 py-2 bg-black text-white rounded">
-          View Products
-        </Link>
+      <section className="promotions">
+        <div className="promo-card">
+          <div className="promo-label">New<br />Arrivals</div>
+          <img src="/promos/new-arrivals.jpg" alt="New arrivals" />
+        </div>
 
-        <Link href="/cart" className="px-4 py-2 bg-gray-800 text-white rounded">
-          View Cart
-        </Link>
+        <div className="promo-card">
+          <div className="promo-label">Trending</div>
+          <img src="/promos/trending.jpg" alt="Trending styles" />
+        </div>
+      </section>
 
-        <Link href="/profile" className="px-4 py-2 bg-gray-600 text-white rounded">
-          Profile
-        </Link>
-      </div>
-    </div>
+      <section className="best-sellers">
+        <div className="section-heading">
+          <span />
+          <h1>Best Sellers</h1>
+          <span />
+        </div>
+
+      </section>
+    </main>
   );
 }

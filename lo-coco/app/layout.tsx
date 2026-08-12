@@ -1,13 +1,10 @@
+'use client';
+
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { SessionContext, SessionProvider } from "next-auth/react";
-
-export const metadata = {
-  title: "LO COCO",
-  description: "Prototype clothing store",
-};
 
 export default function RootLayout({
   children,

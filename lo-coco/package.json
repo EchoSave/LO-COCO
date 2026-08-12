@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.4.2",
     "mongodb": "^7.5.0",
     "mongoose": "^9.9.1",
     "next": "^15.0.0",
+    "next-auth": "^4.24.15",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

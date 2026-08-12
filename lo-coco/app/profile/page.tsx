@@ -1,12 +1,17 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+
 export default function ProfilePage() {
+  const { data: session } = useSession();
+
+  if (!session)
+    return <p className="text-red-600">You must be logged in to view this page.</p>;
+
   return (
     <div>
       <h1 className="text-3xl font-bold">Your Profile</h1>
-      <p className="mt-2">Prototype profile page.</p>
-
-      <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded">
-        Edit Profile
-      </button>
+      <p className="mt-2">Welcome, {session.user?.email}</p>
     </div>
   );
 }

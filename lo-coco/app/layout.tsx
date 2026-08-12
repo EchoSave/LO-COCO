@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
+import { SessionContext, SessionProvider } from "next-auth/react";
 
 export const metadata = {
   title: "LO COCO",
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900">
-        <CartProvider>
-          <Navbar />
-          <main className="p-6">{children}</main>
-          <Footer />
-        </CartProvider>
+        <SessionProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="p-6">{children}</main>
+            <Footer />
+          </CartProvider>
+        </SessionProvider>
       </body>
     </html>
   );

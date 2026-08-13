@@ -23,13 +23,6 @@ export default function ProductCard({ product }: { product: Product }) {
       <h2 className="text-xl font-semibold mt-2">{product.name}</h2>
       <p className="text-gray-600">${product.price}</p>
 
-      <Link
-        href={`/products/${product.id}`}
-        className="mt-3 mr-3 inline-block px-1 py-1 hover:bg-black hover:text-white rounded"
-      >
-        View Details
-      </Link>
-
       <button className="mt-3 ml-3 inline-block px-1 py-1 hover:bg-black hover:text-white rounded"
         onClick={() =>
           addToCart({

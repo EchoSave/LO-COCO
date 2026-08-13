@@ -46,38 +46,72 @@ export default function ProductsPage() {
   }, []);
 
   if (loading) {
-    return <p>Loading products...</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p>Loading products...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p>{error}</p>
+      </div>
+    );
   }
 
   return (
-    <div className="product-page">
-      <img
-        src="/shop-header-photo.png"
-        alt="Shop Header"
-        className="w-full h-50 object-cover"
-      />
-      <h1 className="absolute left-100 top-40 flex items-center justify-center text-3xl font-bold text-white drop-shadow-lg">
-        Elevate your style
-      </h1>
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <div className="relative w-full h-64 md:h-80 overflow-hidden">
+        <img
+          src="/shop-header-photo.png"
+          alt="Shop Header"
+          className="w-full h-full object-cover"
+        />
 
-      {products.length === 0 ? (
-        <p>No products found.</p>
-      ) : (
-        <div className="product-content">
-          <h2 className="text-2xl font-semibold mb-5 mt-5 pt-5">Recently Added</h2>
-          <div className="grid grid-cols-2 gap-6">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product} />
-            ))}
-          </div>
-        </div>
-      )}
+        <div className="absolute inset-0 bg-black/20" />
+
+        <h1 className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
+          Elevate your style
+        </h1>
+      </div>
+
+      {/* Products */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {products.length === 0 ? (
+          <p className="text-center text-gray-500">
+            No products found.
+          </p>
+        ) : (
+          <>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-semibold">
+                  Recently Added
+                </h2>
+                <p className="text-gray-500 mt-1">
+                  Discover our latest styles
+                </p>
+              </div>
+
+              <p className="text-sm text-gray-500">
+                {products.length} products
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </main>
     </div>
   );
 }

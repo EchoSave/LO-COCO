@@ -1,3 +1,6 @@
+"use client";
+
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 
 interface Product {
@@ -8,6 +11,7 @@ interface Product {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { addToCart } = useCart();
   return (
     <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
       <img
@@ -25,6 +29,20 @@ export default function ProductCard({ product }: { product: Product }) {
       >
         View Details
       </Link>
+
+      <button
+        onClick={() =>
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            qty: 1,
+          })
+        }
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }

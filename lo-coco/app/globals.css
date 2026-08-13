@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #FCD5BB;
   --foreground: #171717;
 }
 
@@ -37,7 +37,7 @@ body {
 
   padding: 0 80px;
 
-  background: #fffaf3;
+  background: #FFE2CF;
   border-bottom: 1px solid #2b2824;
 
   color: #171512;
@@ -130,7 +130,7 @@ body {
 
 .hero {
   width: 100%;
-  height: 315px;
+  height: 450px;
   overflow: hidden;
 
   background: #ead5c1;
@@ -138,7 +138,7 @@ body {
 
 .hero-image {
   width: 100%;
-  height: 100%;
+  height: 200%;
 
   display: block;
 
@@ -156,7 +156,7 @@ body {
 
   gap: 22px;
 
-  background: #f0d2b8;
+  background: #facbac;
 }
 
 .promo-card {
@@ -214,9 +214,9 @@ body {
 .best-sellers {
   width: 100%;
 
-  padding: 10px 38px 40px;
+  padding: 10px 38px 250px;
 
-  background: #f8e8d7;
+  background: #FCD5BB;
 }
 
 .section-heading {
@@ -258,10 +258,49 @@ body {
   gap: 54px;
 }
 
+.product-page {
+
+  background: #FCD5BB;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding-top: 15px;
+  
+}
+
+.product-content {
+
+  background: #facbac;
+
+  width: 110%;
+
+  min-height: 100vh;
+
+  padding-left: 50px;
+  
+  padding-top: 0px;
+
+}
+
 .product-card {
   min-width: 0;
+  
+  max-width: 300px;
+  
+  max-height: 320px;
+
+  min-height: 320px;
+
+  border-radius: 8px;
+
+  background: #FFE2CF;
 
   text-align: center;
+
+  border: 1.5px solid #606060;
+  
 }
 
 .product-image-container {
@@ -278,6 +317,7 @@ body {
 
 .product-image {
   width: 100%;
+  
   height: 100%;
 
   display: block;

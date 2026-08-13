@@ -61,7 +61,7 @@ export default function AdminPage() {
 
   // Admin dashboard
   return (
-    <div className="min-h-screen bg-[#f7e5d4] p-8">
+    <div className="min-h-screen bg-[#FCD5BB] p-8">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-8">

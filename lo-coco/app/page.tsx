@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <section className="hero">
         <img
-          src="/hero.jpg"
+          src="/header.png"
           alt="Hero Image"
           className="hero-image"
         />
@@ -15,12 +15,12 @@ export default function Home() {
       <section className="promotions">
         <div className="promo-card">
           <div className="promo-label">New<br />Arrivals</div>
-          <img src="/promos/new-arrivals.jpg" alt="New arrivals" />
+          <img src="/promo1.png" alt="New arrivals" />
         </div>
 
         <div className="promo-card">
           <div className="promo-label">Trending</div>
-          <img src="/promos/trending.jpg" alt="Trending styles" />
+          <img src="/promo2.png" alt="Trending styles" />
         </div>
       </section>
 

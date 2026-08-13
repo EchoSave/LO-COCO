@@ -12,12 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body className="bg-gray-50 text-gray-900">
         <SessionProvider>
           <CartProvider>
             <Navbar />
-            <main className="p-6">{children}</main>
+            <main className="">{children}</main>
             <Footer />
           </CartProvider>
         </SessionProvider>

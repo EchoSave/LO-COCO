@@ -54,21 +54,28 @@ export default function ProductsPage() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">
-        Products
+    <div className="product-page">
+      <img
+        src="/shop-header-photo.png"
+        alt="Shop Header"
+        className="w-full h-50 object-cover"
+      />
+      <h1 className="absolute left-100 top-40 flex items-center justify-center text-3xl font-bold text-white drop-shadow-lg">
+        Elevate your style
       </h1>
 
       {products.length === 0 ? (
         <p>No products found.</p>
       ) : (
-        <div className="grid grid-cols-2 gap-6">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
+        <div className="product-content">
+          <h2 className="text-2xl font-semibold mb-5 mt-5 pt-5">Recently Added</h2>
+          <div className="grid grid-cols-2 gap-6">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product} />
+            ))}
+          </div>
         </div>
       )}
     </div>

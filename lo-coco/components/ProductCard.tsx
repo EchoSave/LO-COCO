@@ -13,7 +13,7 @@ interface Product {
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
   return (
-    <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
+    <div className="product-card">
       <img
         src={product.image}
         alt={product.name}
@@ -25,12 +25,12 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <Link
         href={`/products/${product.id}`}
-        className="mt-3 inline-block px-4 py-2 bg-black text-white rounded"
+        className="mt-3 mr-3 inline-block px-1 py-1 hover:bg-black hover:text-white rounded"
       >
         View Details
       </Link>
 
-      <button
+      <button className="mt-3 ml-3 inline-block px-1 py-1 hover:bg-black hover:text-white rounded"
         onClick={() =>
           addToCart({
             id: product.id,

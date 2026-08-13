@@ -1,22 +1,32 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "@/models/User";
 import { connectDB } from "@/lib/mongodb";
 
-const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
+
       credentials: {
-      email: { label: "Email", type: "text" },
-      password: { label: "Password", type: "password" },
+        email: {
+          label: "Email",
+          type: "text",
+        },
+        password: {
+          label: "Password",
+          type: "password",
+        },
       },
 
       async authorize(credentials) {
         await connectDB();
 
-        const user = await User.findOne({ email: credentials?.email });
+        const user = await User.findOne({
+          email: credentials?.email,
+        });
+
         if (!user) return null;
 
         const isValid = await bcrypt.compare(
@@ -26,34 +36,41 @@ const handler = NextAuth({
 
         if (!isValid) return null;
 
-        return { id: user._id.toString(), email: user.email, name: user.name , role: user.role};
+        return {
+          id: user._id.toString(),
+          email: user.email,
+          name: user.name,
+          role: user.role,
+        };
       },
     }),
   ],
 
   callbacks: {
-  async jwt({ token, user }) {
-    if (user) {
-      token.id = user.id;
-      token.role = user.role;
-    }
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
 
-    return token;
+      return token;
+    },
+
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id as string;
+        session.user.role = token.role as string;
+      }
+
+      return session;
+    },
   },
-
-  async session({ session, token }) {
-    if (session.user) {
-      session.user.id = token.id as string;
-      session.user.role = token.role as string;
-    }
-
-    return session;
-  },
-},
 
   pages: {
     signIn: "/login",
   },
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

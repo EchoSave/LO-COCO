@@ -1,9 +1,13 @@
-'use client';
+"use client";
+
 import { useCart } from "@/context/CartContext";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function NavBar() {
   const { cart } = useCart();
+  const { data: session, status } = useSession();
+
   return (
     <header className="navbar">
       <Link href="/" className="logo">
@@ -17,6 +21,15 @@ export default function NavBar() {
         <Link href="/products">Shop</Link>
         <span>|</span>
         <Link href="/about">About</Link>
+
+        {/* ADMIN LINK */}
+        {status === "authenticated" && session.user?.role === "admin" && (
+          <>
+            <span>|</span>
+            <Link href="/admin">Admin Dashboard</Link>
+          </>
+        )}
+
         <span>|</span>
       </nav>
 

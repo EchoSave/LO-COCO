@@ -78,8 +78,27 @@ export default function CartPage() {
           />
 
           <button
-            onClick={() => {
+            onClick={async () => {
               if (!address.trim()) return;
+              
+              const orderData = {
+                userId: "Guest",
+                items: cart.map(item => ({
+                  productId: item.id,
+                  quantity: item.qty,
+                  price: item.price
+                })),
+                totalAmount: totalPrice,
+                status: "Pending",
+                createdAt: new Date()
+              };
+
+              await fetch("/api/orders", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(orderData)
+              });
+
               setOrderComplete(true);
             }}
             className="w-full bg-black text-white py-3 rounded hover:opacity-80"

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -23,21 +22,16 @@ export default function OrdersPage() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Manage Orders</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {orders.map((order: any) => (
-          <div key={order._id} className="border rounded-lg p-4">
-            <h2 className="text-lg font-semibold">Order #{order._id}</h2>
-            <p className="text-gray-600">Customer: {order.userId}</p>
-            <p className="text-gray-600">Items: {order.items?.length ?? 0}</p>
-            <p className="text-gray-600">Total: ${order.totalAmount ? order.totalAmount.toFixed(2) : "0.00"}</p>
-            <p className="text-gray-600">Status: {order.status}</p>
-            <p className="text-gray-600">Created At: {order.createdAt ? order.createdAt.toLocaleString() : ""}</p>
-            <Link
-              href={`/admin/orders/${order._id}`}
-              className="mt-2 inline-block text-blue-500 hover:underline"
-            >
-              View Details
-            </Link>
+          <div key={order._id} className="order-card">
+            <h2 className="text-lg font-semibold mt-2">Order #{order._id}</h2>
+            <p className="text-gray-800">Customer: {order.userId}</p>
+            <p className="text-gray-800">Items: {order.items?.length ?? 0}</p>
+            <p className="text-gray-800">Total: ${order.totalAmount ? order.totalAmount.toFixed(2) : "0.00"}</p>
+            <p className="text-gray-800">Status: {order.status}</p>
+            <p className="text-gray-800">Created At: {order.createdAt ? order.createdAt.toLocaleString() : ""}</p>
+            
             <button
               onClick={async () => {
                 await fetch("/api/orders", {

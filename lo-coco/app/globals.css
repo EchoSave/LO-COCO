@@ -356,3 +356,23 @@ body {
 .home-page footer {
   border-top: 1px solid #2b2824;
 }
+
+.order-card {
+  
+  min-width: 0;
+  
+  max-width: 400px;
+  
+  max-height: 250px;
+
+  min-height: 220px;
+
+  border-radius: 8px;
+
+  background: #FFE2CF;
+
+  text-align: center;
+
+  border: 1.5px solid #606060;
+  
+}
